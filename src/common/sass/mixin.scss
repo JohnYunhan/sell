@@ -1,0 +1,52 @@
+@mixin border-1px($color) {
+  position: relative;
+  &:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-top: 1px solid $color;
+    width: 100%;
+    content: '';
+  }
+}
+
+@mixin border-none() {
+  &:after {
+    display: none;
+  }
+}
+
+@mixin bg-image($url) {
+  background-image: url($url + "@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio) {
+    background-image: url($url + "@3x.png");
+  }
+}
+
+@mixin icon-cls($w, $r, $n) {
+  .icon {
+    display: inline-block;
+    width: $w;
+    height: $w;
+    vertical-align: top;
+    margin-right: $r;
+    background-size: $w $w;
+    background-repeat: no-repeat;
+    &.decrease {
+      @include bg-image('decrease_'+$n);
+    }
+    &.discount {
+      @include bg-image('discount_'+$n);
+    }
+    &.guarantee {
+      @include bg-image('guarantee_'+$n);
+    }
+    &.invoice {
+      @include bg-image('invoice_'+$n);
+    }
+    &.special {
+      @include bg-image('special_'+$n);
+    }
+  }
+}
