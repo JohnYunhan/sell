@@ -31,10 +31,31 @@
           border-radius: 50%;
           text-align: center;
           background: #2b343c;
-          .fa {
+          &.highlight {
+            background: rgb(0, 160, 220);
+          }
+          .fa-shopping-cart {
             line-height: 44px;
             font-size: 24px;
+            &.highlight {
+              color: #fff;
+            }
           }
+        }
+        .num {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 24px;
+          height: 16px;
+          line-height: 16px;
+          text-align: center;
+          border-radius: 16px;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+          font-size: 9px;
+          font-weight: 700;
+          color: #fff;
+          background-color: rgb(240, 20, 20);
         }
       }
       .price {
@@ -46,6 +67,9 @@
         border-right: 1px solid rgba(255, 255, 255, 0.1);
         font-size: 16px;
         font-weight: 700;
+        &.highlight {
+          color: #fff;
+        }
       }
       .desc {
         display: inline-block;
@@ -61,11 +85,17 @@
       flex: 0 0 105px;
       width: 105px;
       .pay {
+        height: 48px;
+        line-height: 48px;
         padding: 0 8px;
         text-align: center;
         font-size: 12px;
         font-weight: 700;
         background: #2b343c;
+        &.enough {
+          background: #00b43c;
+          color: #fff;
+        }
       }
     }
   }
