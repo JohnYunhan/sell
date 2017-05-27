@@ -102,7 +102,7 @@ export default {
   },
   methods: {
     initScroll() {
-      // click: true恢复磨人的点击事件
+      // click: true恢复默认的点击事件
       this.menuScroll = new BScroll(this.$refs.meauWrapper, {
         click: true
       });
