@@ -34,7 +34,7 @@
         <splite></splite>
         <div class="food-rating">
           <h1 class="title">商品评价</h1>
-          <ratingselect></ratingselect>
+          <ratingselect :select-type="selectType" :only-content="onlyContent" :desc="desc" :ratings="food.ratings"></ratingselect>
         </div>
       </div>
     </div>
@@ -46,6 +46,7 @@ import Vue from 'vue';
 import cartcontrol from 'components/cartcontrol/cartcontrol';
 import splite from 'components/splite/splite';
 import ratingselect from 'components/ratingselect/ratingselect';
+const ALL = 2;
 
 export default {
   props: {
@@ -55,7 +56,10 @@ export default {
   },
   data() {
     return {
-      showFood: false
+      showFood: false,
+      selectType: ALL,
+      onlyContent: false,
+      desc: {}
     };
   },
   methods: {
@@ -67,6 +71,13 @@ export default {
     },
     show() {
       this.showFood = true;
+      this.selectType = ALL;
+      this.onlyContent = false;
+      this.desc = {
+        all: '全部',
+        positive: '推荐',
+        negative: '吐槽'
+      };
       this.$nextTick(() => {
         if (!this.scrollFood) {
           this.scrollFood = new BScroll(this.$refs.foodScroll, {
