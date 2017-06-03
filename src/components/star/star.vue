@@ -1,7 +1,7 @@
 <template>
-  <div class="star" :class="starType">
+  <span class="star" :class="starType">
     <span v-for="item in itemClass" class="star-item" :class="item"></span>
-  </div>
+  </span>
 </template>
 <script>
 const LENGTH = 5;

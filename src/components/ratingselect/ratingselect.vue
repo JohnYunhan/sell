@@ -5,8 +5,8 @@
       <span @click="select(0,$event)" class="positive block" :class="{'active':selectedType===0}">{{desc.positive}}<span class="count">{{positives.length}}</span></span>
       <span @click="select(1,$event)" class="negative block" :class="{'active':selectedType===1}">{{desc.negative}}<span class="count">{{negatives.length}}</span></span>
     </div>
-    <div class="rating-switch">
-      <i @click="toggleContent($event)" class="fa fa-check-circle" :class="{'on':onlyContent}"></i>
+    <div @click="toggleContent($event)" class="rating-switch">
+      <i class="fa fa-check-circle" :class="{'on':onlyContents}"></i>
       <span class="text">只看有内容的评价</span>
     </div>
   </div>
@@ -68,7 +68,7 @@ export default {
       }
       this.selectedType = type;
       // 向父组件传递改变后的值
-      this.$emit('ratingtype.select', this.selectedType);
+      this.$emit('ratingTypeSelect', this.selectedType);
     },
     toggleContent(event) {
       if (!event._constructed) {
@@ -76,7 +76,7 @@ export default {
       }
       this.onlyContents = !this.onlyContents;
       // 向父组件传递改变后的值
-      this.$emit('content.toggle', this.onlyContents);
+      this.$emit('contentToggle', this.onlyContents);
     }
   }
 };

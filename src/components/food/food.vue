@@ -34,7 +34,22 @@
         <splite></splite>
         <div class="food-rating">
           <h1 class="title">商品评价</h1>
-          <ratingselect :select-type="selectType" :only-content="onlyContent" :desc="desc" :ratings="food.ratings"></ratingselect>
+          <ratingselect :select-type="selectType" :only-content="onlyContent" :desc="desc" :ratings="food.ratings" v-on:ratingTypeSelect="ratingTypeSelect" v-on:contentToggle="contentToggle" ref="ratingSelect"></ratingselect>
+          <div class="rating-warpper">
+            <ul v-show="food.ratings && food.ratings.length">
+              <li v-show="needShow(rating.rateType,rating.text)" v-for="rating in food.ratings" class="rating-item border-1px">
+                <div class="user">
+                  <span class="name">{{rating.username}}</span>
+                  <img :src="rating.avatar" class="avatar" width="12" height="12">
+                </div>
+                <div class="time">{{rating.rateTime | formatTime}}</div>
+                <p class="text">
+                  <i class="fa" :class="{'fa-thumbs-up':rating.rateType===0,'fa-thumbs-down':rating.rateType===1}"></i>{{rating.text}}
+                </p>
+              </li>
+            </ul>
+            <div class="no-rating" v-show="!food.ratings||!food.ratings.length">暂无评价</div>
+          </div>
         </div>
       </div>
     </div>
@@ -46,6 +61,10 @@ import Vue from 'vue';
 import cartcontrol from 'components/cartcontrol/cartcontrol';
 import splite from 'components/splite/splite';
 import ratingselect from 'components/ratingselect/ratingselect';
+import {
+  formatDate
+} from 'common/js/date';
+
 const ALL = 2;
 
 export default {
@@ -85,11 +104,43 @@ export default {
           });
         } else {
           this.scrollFood.refresh();
+          // 恢复子组件中的默认值
+          this.$refs.ratingSelect.selectedType = ALL;
+          this.$refs.ratingSelect.onlyContents = false;
         }
       });
     },
     back() {
       this.showFood = false;
+    },
+    needShow(type, text) {
+      if (this.onlyContent && !text) {
+        return false;
+      }
+      if (this.selectType === ALL) {
+        return true;
+      } else {
+        return type === this.selectType;
+      }
+    },
+    ratingTypeSelect(type) {
+      this.selectType = type;
+      this.$nextTick(() => {
+        this.scrollFood.refresh();
+      });
+    },
+    contentToggle(bool) {
+      this.onlyContent = bool;
+      // DOM的更新是异步的
+      this.$nextTick(() => {
+        this.scrollFood.refresh();
+      });
+    }
+  },
+  filters: {
+    formatTime(date) {
+      var newDate = new Date(date);
+      return formatDate(newDate, 'yyyy-MM-dd hh:mm');
     }
   },
   components: {
