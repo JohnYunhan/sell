@@ -51,12 +51,14 @@
         <div class="no-rating" v-show="!ratings||!ratings.length">暂无评价</div>
       </div>
     </div>
+    <shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
   </div>
 </template>
 <script type="text/ecmascript-6">
 import BScroll from 'better-scroll';
 import splite from 'components/splite/splite';
 import star from 'components/star/star';
+import shopcart from 'components/shopcart/shopcart';
 import ratingselect from 'components/ratingselect/ratingselect';
 import {
   formatDate
@@ -69,6 +71,9 @@ export default {
   props: {
     seller: {
       type: Object
+    },
+    goods: {
+      type: Array
     }
   },
   data() {
@@ -91,9 +96,13 @@ export default {
   },
   methods: {
     initScroll() {
-      this.scrollRating = new BScroll(this.$refs.ratingContent, {
-        click: true
-      });
+      if (!this.scrollRating) {
+        this.scrollRating = new BScroll(this.$refs.ratingContent, {
+          click: true
+        });
+      } else {
+        this.scrollRating.refresh();
+      }
     },
     needShow(type, text) {
       if (this.onlyContent && !text) {
@@ -119,6 +128,19 @@ export default {
       });
     }
   },
+  computed: {
+    selectFoods() {
+      let foods = [];
+      this.goods.forEach((good) => {
+        good.foods.forEach((food) => {
+          if (food.count) {
+            foods.push(food);
+          }
+        });
+      });
+      return foods;
+    }
+  },
   filters: {
     formatTime(date) {
       var newDate = new Date(date);
@@ -128,7 +150,8 @@ export default {
   components: {
     splite,
     star,
-    ratingselect
+    ratingselect,
+    shopcart
   }
 };
 </script>

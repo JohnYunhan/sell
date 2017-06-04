@@ -47,16 +47,17 @@ import shopcart from 'components/shopcart/shopcart';
 import cartcontrol from 'components/cartcontrol/cartcontrol';
 import food from 'components/food/food';
 
-const ERR_OK = 0;
 export default {
   props: {
     seller: {
       type: Object
+    },
+    goods: {
+      type: Array
     }
   },
   data() {
     return {
-      goods: [],
       listHeight: [],
       srcollY: 0,
       foodsScroll: null,
@@ -88,29 +89,41 @@ export default {
     }
   },
   created() {
-    this.$http.get('/api/goods').then(response => {
-      response = response.body;
-      if (response.errno === ERR_OK) {
-        this.goods = response.data;
-        this.$nextTick(() => {
-          this.initScroll();
-          this.caculateHeight();
-        });
-      }
+    // this.$http.get('/api/goods').then(response => {
+    //   response = response.body;
+    //   if (response.errno === ERR_OK) {
+    //     this.goods = response.data;
+    //     this.$nextTick(() => {
+    //       this.initScroll();
+    //       this.caculateHeight();
+    //     });
+    //   }
+    // });
+    this.$nextTick(() => {
+      this.initScroll();
+      this.caculateHeight();
     });
     this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
   },
   methods: {
     initScroll() {
-      // click: true恢复默认的点击事件
-      this.menuScroll = new BScroll(this.$refs.meauWrapper, {
-        click: true
-      });
-      // probeType: 3 监测实时滚动的位置
-      this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
-        click: true,
-        probeType: 3
-      });
+      if (!this.menuScroll) {
+        // click: true恢复默认的点击事件
+        this.menuScroll = new BScroll(this.$refs.meauWrapper, {
+          click: true
+        });
+      } else {
+        this.menuScroll.refresh();
+      }
+      if (!this.foodsScroll) {
+        // probeType: 3 监测实时滚动的位置
+        this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
+          click: true,
+          probeType: 3
+        });
+      } else {
+        this.foodsScroll.refresh();
+      }
       this.foodsScroll.on('scroll', (pos) => {
         // 获取滚动的位置的纵坐标(正值)
         this.srcollY = Math.abs(Math.round(pos.y));
