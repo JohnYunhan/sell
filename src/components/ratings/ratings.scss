@@ -34,11 +34,18 @@
           color: rgb(147, 153, 159);
         }
       }
+      @media only screen and (max-width:320px) {
+        .overview-left {
+          flex: 0 0 110px;
+          width: 110px;
+        }
+      }
       .overview-right {
         flex: 1;
-        padding: 0 24px;
+        padding-left: 24px;
         font-size: 12px;
         .service-score {
+          height: 18px;
           line-height: 18px;
           margin-bottom: 8px;
           .service {
@@ -52,6 +59,7 @@
           }
         }
         .food-score {
+          height: 18px;
           line-height: 18px;
           margin-bottom: 8px;
           .foods {
@@ -65,6 +73,7 @@
           }
         }
         .delivery-time {
+          height: 18px;
           line-height: 18px;
           .delivery {
             display: inline-block;
@@ -73,6 +82,11 @@
           .time {
             color: rgb(147, 153, 159);
           }
+        }
+      }
+      @media only screen and (max-width:320px) {
+        .overview-right {
+          padding-left: 6px;
         }
       }
     }

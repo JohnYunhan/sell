@@ -12,7 +12,7 @@
         <div class="desc">另需配送费￥{{deliveryPrice}}元</div>
       </div>
       <div class="content-right">
-        <div class="pay" :class="{'enough': totalPrice>=minPrice}">{{payDesc}}</div>
+        <div class="pay" :class="{'enough': totalPrice>=minPrice}" @click="toPay">{{payDesc}}</div>
       </div>
     </div>
     <transition name="fold">
@@ -127,6 +127,12 @@ export default {
       this.selectFoods.forEach((food) => {
         food.count = 0;
       });
+    },
+    toPay() {
+      if (this.payDesc === '去结算') {
+        let total = this.totalPrice + this.deliveryPrice;
+        window.alert('请支付' + total + '元');
+      }
     }
   },
   components: {

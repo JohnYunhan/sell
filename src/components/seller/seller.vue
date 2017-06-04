@@ -9,9 +9,9 @@
             <span class="rank-rate">({{seller.rankRate}})</span>
             <span class="sell-count">月售{{seller.sellCount}}单</span>
           </div>
-          <div class="collect">
-            <i class="fa fa-heart"></i>
-            <span class="text">已收藏</span>
+          <div class="collect" @click="collected=!collected">
+            <i class="fa fa-heart" :style="{'color': collected ?'rgb(240, 20, 20)':'rgb(147, 153, 159)'}"></i>
+            <span class="text" :style="{'color': collected ?'rgb(77, 85, 93)':'rgb(147, 153, 159)'}">{{collected?'已收藏':'收藏'}}</span>
           </div>
         </div>
         <div class="header-bottom">
@@ -59,23 +59,23 @@
         </ul>
       </div>
     </div>
-    <shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
   </div>
 </template>
 <script type="text/ecmascript-6">
 import BScroll from 'better-scroll';
 import splite from 'components/splite/splite';
 import star from 'components/star/star';
-import shopcart from 'components/shopcart/shopcart';
 
 export default {
   props: {
     seller: {
       type: Object
-    },
-    goods: {
-      type: Array
     }
+  },
+  data() {
+    return {
+      collected: false
+    };
   },
   created() {
     this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
@@ -125,8 +125,7 @@ export default {
   },
   components: {
     splite,
-    star,
-    shopcart
+    star
   }
 };
 </script>

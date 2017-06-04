@@ -51,14 +51,12 @@
         <div class="no-rating" v-show="!ratings||!ratings.length">暂无评价</div>
       </div>
     </div>
-    <shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
   </div>
 </template>
 <script type="text/ecmascript-6">
 import BScroll from 'better-scroll';
 import splite from 'components/splite/splite';
 import star from 'components/star/star';
-import shopcart from 'components/shopcart/shopcart';
 import ratingselect from 'components/ratingselect/ratingselect';
 import {
   formatDate
@@ -71,9 +69,6 @@ export default {
   props: {
     seller: {
       type: Object
-    },
-    goods: {
-      type: Array
     }
   },
   data() {
@@ -150,8 +145,7 @@ export default {
   components: {
     splite,
     star,
-    ratingselect,
-    shopcart
+    ratingselect
   }
 };
 </script>

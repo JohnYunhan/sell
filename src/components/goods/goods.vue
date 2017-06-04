@@ -47,13 +47,12 @@ import shopcart from 'components/shopcart/shopcart';
 import cartcontrol from 'components/cartcontrol/cartcontrol';
 import food from 'components/food/food';
 
+const ERR_OK = 0;
+
 export default {
   props: {
     seller: {
       type: Object
-    },
-    goods: {
-      type: Array
     }
   },
   data() {
@@ -61,7 +60,8 @@ export default {
       listHeight: [],
       srcollY: 0,
       foodsScroll: null,
-      selectedFood: {}
+      selectedFood: {},
+      goods: []
     };
   },
   computed: {
@@ -89,19 +89,15 @@ export default {
     }
   },
   created() {
-    // this.$http.get('/api/goods').then(response => {
-    //   response = response.body;
-    //   if (response.errno === ERR_OK) {
-    //     this.goods = response.data;
-    //     this.$nextTick(() => {
-    //       this.initScroll();
-    //       this.caculateHeight();
-    //     });
-    //   }
-    // });
-    this.$nextTick(() => {
-      this.initScroll();
-      this.caculateHeight();
+    this.$http.get('/api/goods').then(response => {
+      response = response.body;
+      if (response.errno === ERR_OK) {
+        this.goods = response.data;
+        this.$nextTick(() => {
+          this.initScroll();
+          this.caculateHeight();
+        });
+      }
     });
     this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
   },

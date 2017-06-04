@@ -3,7 +3,7 @@
   position: absolute;
   top: 174px;
   left: 0;
-  bottom: 46px;
+  bottom: 0;
   width: 100%;
   overflow: hidden;
   .seller-header {
@@ -39,13 +39,13 @@
         position: absolute;
         top: 18px;
         right: 0;
+        width: 36px;
         text-align: center;
         .fa-heart {
           display: block;
           margin-bottom: 4px;
           line-height: 24px;
           font-size: 24px;
-          color: rgb(240, 20, 20);
         }
         .text {
           display: block;
