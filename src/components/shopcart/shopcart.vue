@@ -19,7 +19,7 @@
       <div class="shopcart-list" v-show="listShow">
         <div class="list-header">
           <h1 class="title">购物车</h1>
-          <span @click="emptyCart" class="empty">清空</span>
+          <span @click="emptyCart" class="empty"><i class="fa fa-trash-o"></i>清空</span>
         </div>
         <div class="list-content" ref="listContent">
           <ul>
@@ -131,7 +131,12 @@ export default {
     toPay() {
       if (this.payDesc === '去结算') {
         let total = this.totalPrice + this.deliveryPrice;
-        window.alert('请支付' + total + '元');
+        let msg = '请支付' + total + '元，满28可减5';
+        if (total >= 28) {
+          total = total - 5;
+          msg = '请支付' + total + '元，已优惠5元';
+        }
+        window.alert(msg);
       }
     }
   },

@@ -58,12 +58,13 @@ import BScroll from 'better-scroll';
 import splite from 'components/splite/splite';
 import star from 'components/star/star';
 import ratingselect from 'components/ratingselect/ratingselect';
+import data from 'common/data.json';
 import {
   formatDate
 } from 'common/js/date';
 
 const ALL = 2;
-const ERR_OK = 0;
+// const ERR_OK = 0;
 
 export default {
   props: {
@@ -79,14 +80,18 @@ export default {
     };
   },
   created() {
-    this.$http.get('/api/ratings').then(response => {
-      response = response.body;
-      if (response.errno === ERR_OK) {
-        this.ratings = response.data;
-        this.$nextTick(() => {
-          this.initScroll();
-        });
-      }
+    // this.$http.get('/api/ratings').then(response => {
+    //   response = response.body;
+    //   if (response.errno === ERR_OK) {
+    //     this.ratings = response.data;
+    //     this.$nextTick(() => {
+    //       this.initScroll();
+    //     });
+    //   }
+    // });
+    this.ratings = data.ratings;
+    this.$nextTick(() => {
+      this.initScroll();
     });
   },
   methods: {

@@ -46,8 +46,9 @@ import BScroll from 'better-scroll';
 import shopcart from 'components/shopcart/shopcart';
 import cartcontrol from 'components/cartcontrol/cartcontrol';
 import food from 'components/food/food';
+import data from 'common/data.json';
 
-const ERR_OK = 0;
+// const ERR_OK = 0;
 
 export default {
   props: {
@@ -89,15 +90,20 @@ export default {
     }
   },
   created() {
-    this.$http.get('/api/goods').then(response => {
-      response = response.body;
-      if (response.errno === ERR_OK) {
-        this.goods = response.data;
-        this.$nextTick(() => {
-          this.initScroll();
-          this.caculateHeight();
-        });
-      }
+    // this.$http.get('/api/goods').then(response => {
+    //   response = response.body;
+    //   if (response.errno === ERR_OK) {
+    //     this.goods = response.data;
+    //     this.$nextTick(() => {
+    //       this.initScroll();
+    //       this.caculateHeight();
+    //     });
+    //   }
+    // });
+    this.goods = data.goods;
+    this.$nextTick(() => {
+      this.initScroll();
+      this.caculateHeight();
     });
     this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
   },

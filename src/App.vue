@@ -19,8 +19,9 @@
 </template>
 <script>
 import header from './components/header/header.vue';
+import data from 'common/data.json';
 
-const ERR_OK = 0;
+// const ERR_OK = 0;
 
 export default {
   data() {
@@ -30,12 +31,13 @@ export default {
       };
     },
     created() {
-      this.$http.get('/api/seller').then(response => {
-        response = response.body;
-        if (response.errno === ERR_OK) {
-          this.seller = response.data;
-        }
-      });
+      // this.$http.get('/api/seller').then(response => {
+      //   response = response.body;
+      //   if (response.errno === ERR_OK) {
+      //     this.seller = response.data;
+      //   }
+      // });
+      this.seller = data.seller;
     },
     components: {
       'v-header': header

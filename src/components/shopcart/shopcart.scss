@@ -132,6 +132,11 @@
         float: right;
         font-size: 12px;
         color: rgb(0, 160, 220);
+        i {
+          display: inline-block;
+          margin-right: 4px;
+          color: #93999f;
+        }
       }
     }
     .list-content {
