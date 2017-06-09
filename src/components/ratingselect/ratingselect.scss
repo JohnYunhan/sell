@@ -2,7 +2,7 @@
 .ratingselect {
   position: relative;
   padding: 18px 18px 12px;
-  border-bottom: 2px solid rgba(7, 17, 27, 0.1);
+  @include border-2px(rgba(7, 17, 27, 0.1));
   .rating-type {
     padding-bottom: 18px;
     @include border-1px(rgba(7, 17, 27, 0.1));

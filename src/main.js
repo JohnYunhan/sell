@@ -8,6 +8,7 @@ import goods from './components/goods/goods';
 import seller from './components/seller/seller';
 import ratings from './components/ratings/ratings';
 import './common/sass/index.scss';
+// import 'vue-material/dist/vue-material.css';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);

@@ -6,7 +6,7 @@
           <h1 class="name">{{seller.name}}</h1>
           <div class="sell">
             <star :size="36" :score="seller.score"></star>
-            <span class="rank-rate">({{seller.rankRate}})</span>
+            <span class="rank-rate">（{{seller.rankRate}}）</span>
             <span class="sell-count">月售{{seller.sellCount}}单</span>
           </div>
           <div class="collect" @click="collected=!collected">

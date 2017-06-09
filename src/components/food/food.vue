@@ -6,6 +6,7 @@
           <img :src="food.image">
           <div @click="back" class="back">
             <i class="fa fa-angle-left"></i>
+            <span class="text">返回</span>
           </div>
         </div>
         <div class="content">

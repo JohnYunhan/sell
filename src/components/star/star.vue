@@ -11,8 +11,12 @@ const CLS_OFF = 'off';
 
 export default {
   props: {
-    size: {},
-    score: {}
+    size: {
+      type: Number
+    },
+    score: {
+      type: Number
+    }
   },
   computed: {
     starType() {

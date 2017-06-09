@@ -16,6 +16,13 @@
       </div>
     </div>
     <transition name="fold">
+      <div class="ball-container">
+        <div v-for="ball in balls" v-show="ball.show" class="ball">
+          <div class="inner"></div>
+        </div>
+      </div>
+    </transition>
+    <transition name="fold">
       <div class="shopcart-list" v-show="listShow">
         <div class="list-header">
           <h1 class="title">购物车</h1>
@@ -64,7 +71,18 @@ export default {
   data() {
     return {
       // 购物车列表折叠
-      fold: true
+      fold: true,
+      balls: [{
+        show: false
+      }, {
+        show: false
+      }, {
+        show: false
+      }, {
+        show: false
+      }, {
+        show: false
+      }]
     };
   },
   computed: {

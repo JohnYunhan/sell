@@ -11,6 +11,19 @@
   }
 }
 
+@mixin border-2px($color) {
+  position: relative;
+  &:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-bottom: 2px solid $color;
+    width: 100%;
+    content: '';
+  }
+}
+
 @mixin border-none() {
   &:after {
     display: none;

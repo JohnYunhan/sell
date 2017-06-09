@@ -48,13 +48,12 @@
           height: 18px;
           line-height: 18px;
           margin-bottom: 8px;
-          .service {
+          .star {
             display: inline-block;
-            margin-right: 12px;
+            margin: 0 12px;
+            vertical-align: top;
           }
           .score {
-            display: inline-block;
-            margin-left: 12px;
             color: rgb(255, 153, 0);
           }
         }
@@ -62,13 +61,12 @@
           height: 18px;
           line-height: 18px;
           margin-bottom: 8px;
-          .foods {
+          .star {
             display: inline-block;
-            margin-right: 12px;
+            margin: 0 12px;
+            vertical-align: top;
           }
           .score {
-            display: inline-block;
-            margin-left: 12px;
             color: rgb(255, 153, 0);
           }
         }

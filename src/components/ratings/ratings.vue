@@ -10,12 +10,12 @@
         <div class="overview-right">
           <div class="service-score">
             <span class="service">服务态度</span>
-            <star :size="24" :score="seller.serviceScore"></star>
+            <star :size="36" :score="seller.serviceScore"></star>
             <span class="score">{{seller.serviceScore}}</span>
           </div>
           <div class="food-score">
             <span class="foods">商品质量</span>
-            <star :size="24" :score="seller.foodScore"></star>
+            <star :size="36" :score="seller.foodScore"></star>
             <span class="score">{{seller.foodScore}}</span>
           </div>
           <div class="delivery-time">
