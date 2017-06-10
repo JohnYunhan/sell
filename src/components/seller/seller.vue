@@ -9,7 +9,7 @@
             <span class="rank-rate">（{{seller.rankRate}}）</span>
             <span class="sell-count">月售{{seller.sellCount}}单</span>
           </div>
-          <div class="collect" @click="collected=!collected">
+          <div class="collect" @click="collected=!collected" v-ripple="'rgba(255, 255, 255, 0.5)'">
             <i class="fa fa-heart" :style="{'color': collected ?'rgb(240, 20, 20)':'rgb(147, 153, 159)'}"></i>
             <span class="text" :style="{'color': collected ?'rgb(77, 85, 93)':'rgb(147, 153, 159)'}">{{collected?'已收藏':'收藏'}}</span>
           </div>
@@ -45,7 +45,7 @@
         <h1 class="title">商家实景</h1>
         <div class="pic-wrapper" ref="picsScroll">
           <ul class="pic-list" ref="pics">
-            <li v-for="pic in seller.pics" class="pic-item">
+            <li v-for="pic in seller.pics" class="pic-item" v-ripple="'rgba(255, 255, 255, 0.35)'">
               <img :src="pic" width="120" height="90">
             </li>
           </ul>

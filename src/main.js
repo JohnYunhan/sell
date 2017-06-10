@@ -8,11 +8,12 @@ import goods from './components/goods/goods';
 import seller from './components/seller/seller';
 import ratings from './components/ratings/ratings';
 import './common/sass/index.scss';
-// import 'vue-material/dist/vue-material.css';
+import Ripple from 'vue-ripple-directive';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.directive('ripple', Ripple);
 
 let router = new VueRouter({
   mode: 'history',

@@ -3,7 +3,7 @@
     <div class="content">
       <div class="content-left">
         <div class="logo-wrapper" @click="toggleList">
-          <div class="logo" :class="{'highlight': totalCount>0}">
+          <div class="logo" :class="{'highlight': totalCount>0}" v-ripple>
             <i :class="{'highlight': totalCount>0}" class="fa fa-shopping-cart"></i>
           </div>
           <div v-show="totalCount>0" class="num">{{totalCount}}</div>
@@ -11,7 +11,7 @@
         <div class="price" :class="{'highlight': totalPrice>0}">￥{{totalPrice}}</div>
         <div class="desc">另需配送费￥{{deliveryPrice}}元</div>
       </div>
-      <div class="content-right">
+      <div class="content-right" v-ripple="'rgba(0, 0, 0, 0.35)'">
         <div class="pay" :class="{'enough': totalPrice>=minPrice}" @click="toPay">{{payDesc}}</div>
       </div>
     </div>

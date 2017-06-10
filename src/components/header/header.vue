@@ -16,13 +16,13 @@
           <span class="icon" :class="classMap[seller.supports[0].type]"></span>
           <span class="text">{{seller.supports[0].description}}</span>
         </div>
-        <div @click="showDetail" v-if="seller.supports" class="support-count">
+        <div @click="showDetail" v-if="seller.supports" class="support-count" v-ripple="'rgba(255, 255, 255, 0.35)'">
           <span class="count">{{seller.supports.length}}个</span>
           <i class="fa fa-angle-right"></i>
         </div>
       </div>
     </div>
-    <div @click="showDetail" class="bulletin-wrapper">
+    <div @click="showDetail" class="bulletin-wrapper" v-ripple="'rgba(255, 255, 255, 0.35)'">
       <span class="bulletin-title"></span><span class="bulletin-text">{{seller.bulletin}}</span><i class="fa fa-angle-right"></i>
     </div>
     <div class="background">

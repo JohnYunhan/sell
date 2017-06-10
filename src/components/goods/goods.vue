@@ -3,7 +3,7 @@
     <div class="goods">
       <div class="meau-wrapper" ref="meauWrapper">
         <ul>
-          <li v-for="(item,index) in goods" class="meau-item" :class="{'current':currentIndex === index}" @click="selectMeau(index,$event)">
+          <li v-for="(item,index) in goods" class="meau-item" :class="{'current':currentIndex === index}" @click="selectMeau(index,$event)" v-ripple>
             <span class="text border-1px">
             <span v-show="item.type>0" :class="classMap[item.type]" class="icon"></span>{{item.name}}</span>
           </li>
