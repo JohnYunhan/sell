@@ -59,6 +59,11 @@
           background-color: rgb(240, 20, 20);
         }
       }
+      @media only screen and (max-width:320px) {
+        .logo-wrapper {
+          margin: 0 6px;
+        }
+      }
       .price {
         display: inline-block;
         line-height: 24px;
@@ -97,6 +102,12 @@
           background: #00b43c;
           color: #fff;
         }
+      }
+    }
+    @media only screen and (max-width:320px) {
+      .content-right {
+        flex: 0 0 85px;
+        width: 85px;
       }
     }
   }

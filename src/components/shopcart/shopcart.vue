@@ -93,6 +93,9 @@ export default {
           total += food.price * food.count;
         }
       });
+      if (total > 0) {
+        total = total.toFixed(1);
+      }
       return total;
     },
     totalCount() {
@@ -148,12 +151,14 @@ export default {
     },
     toPay() {
       if (this.payDesc === '去结算') {
-        let total = this.totalPrice + this.deliveryPrice;
+        let total = parseFloat(this.totalPrice) + parseFloat(this.deliveryPrice);
+        console.log(total);
         let msg = '请支付' + total + '元，满28可减5';
         if (total >= 28) {
           total = total - 5;
           msg = '请支付' + total + '元，已优惠5元';
         }
+        console.log(total);
         window.alert(msg);
       }
     }

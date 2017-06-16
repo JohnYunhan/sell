@@ -22,6 +22,7 @@ html {
   font-family: 'PingFang SC', 'STHertiSC-Light', 'HelveTica-Light', Arial, sans-serif;
 }
 
+// 清除浮动
 .clearfix {
   display: inline-block;
   &:after {

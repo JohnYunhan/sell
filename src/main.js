@@ -9,11 +9,20 @@ import seller from './components/seller/seller';
 import ratings from './components/ratings/ratings';
 import './common/sass/index.scss';
 import Ripple from 'vue-ripple-directive';
+import VueLazyload from 'vue-lazyload';
+// import Toasted from 'vue-toasted';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
 Vue.use(VueResource);
+// Vue.use(Toasted);
 Vue.directive('ripple', Ripple);
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  error: 'http://www.yunhan723.top/img/error.png',
+  loading: 'http://www.yunhan723.top/img/loading.gif',
+  attempt: 1
+});
 
 let router = new VueRouter({
   mode: 'history',
@@ -26,6 +35,9 @@ let router = new VueRouter({
   }, {
     path: '/ratings',
     component: ratings
+  }, {
+    path: '*',
+    component: goods
   }],
   linkActiveClass: 'active'
 });

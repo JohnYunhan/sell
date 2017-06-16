@@ -3,16 +3,16 @@
     <div v-show="showFood" class="food" ref="foodScroll">
       <div class="food-content">
         <div class="image-header">
-          <img :src="food.image">
-          <div @click="back" class="back">
+          <img v-lazy="food.image">
+          <a href="javascrip:;" @click="back" class="back">
             <i class="fa fa-angle-left"></i>
             <span class="text">返回</span>
-          </div>
+          </a>
         </div>
         <div class="content">
           <h1 class="title">{{food.name}}</h1>
           <div class="detail">
-            <span class="sell-count">月售{{food.sellCount}}份</span>
+            <span class="sell-count">月售{{food.sellCount}}本</span>
             <span class="rating">好评率{{food.rating}}%</span>
           </div>
           <div class="price">

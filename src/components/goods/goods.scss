@@ -21,6 +21,7 @@
         display: table-cell;
         width: 56px;
         vertical-align: middle;
+        text-align: center;
         @include border-1px(rgba(7, 17, 27, 0.1));
         font-size: 12px;
       }
@@ -38,6 +39,17 @@
         .text {
           @include border-none();
         }
+      }
+    }
+  }
+  @media only screen and (max-width:320px) {
+    .meau-wrapper {
+      flex: 0 0 60px;
+      width: 60px;
+      .meau-item {
+        width: 44px;
+        height: 44px;
+        padding: 0 8px;
       }
     }
   }
@@ -72,7 +84,6 @@
         flex: 1;
         .name {
           margin: 2px 0 8px;
-          height: 14px;
           line-height: 14px;
           font-size: 14px;
           color: rgb(7, 17, 27);
@@ -112,6 +123,18 @@
           position: absolute;
           right: 0;
           bottom: 12px;
+        }
+      }
+    }
+    @media only screen and (max-width:320px) {
+      .food-item {
+        margin: 10px;
+        padding-bottom: 10px;
+        .content {
+          .cartcontrol-wrapper {
+            right: -6px;
+            bottom: 8px;
+          }
         }
       }
     }
