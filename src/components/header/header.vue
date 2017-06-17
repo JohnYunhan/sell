@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="content-wrapper">
-      <div class="avatar">
+      <div class="avatar" @click="showAvatar" v-ripple="'rgba(255, 255, 255, 0.35)'">
         <img :src="seller.avatar" width="64" height="64">
       </div>
       <div class="content">
@@ -62,6 +62,11 @@
         </div>
       </div>
     </transition>
+    <transition name="fade">
+      <div @click="avatarShow=false" class="look-avatar" v-show="avatarShow">
+        <img :src="seller.avatar" width="100%" class="avatar">
+      </div>
+    </transition>
   </div>
 </template>
 <script type="text/ecmascript-6">
@@ -73,7 +78,8 @@ export default {
   },
   data() {
     return {
-      detailShow: false
+      detailShow: false,
+      avatarShow: false
     };
   },
   created() {
@@ -85,6 +91,9 @@ export default {
     },
     closeDetail() {
       this.detailShow = false;
+    },
+    showAvatar() {
+      this.avatarShow = true;
     }
   },
   components: {

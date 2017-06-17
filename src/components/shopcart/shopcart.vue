@@ -152,13 +152,11 @@ export default {
     toPay() {
       if (this.payDesc === '去结算') {
         let total = parseFloat(this.totalPrice) + parseFloat(this.deliveryPrice);
-        console.log(total);
-        let msg = '请支付' + total + '元，满28可减5';
-        if (total >= 28) {
-          total = total - 5;
-          msg = '请支付' + total + '元，已优惠5元';
+        let msg = '请支付' + total + '元，满120可减20';
+        if (total >= 120) {
+          total = total - 20;
+          msg = '请支付' + total + '元，已优惠20元';
         }
-        console.log(total);
         window.alert(msg);
       }
     }

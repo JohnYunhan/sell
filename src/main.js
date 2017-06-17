@@ -25,8 +25,11 @@ Vue.use(VueLazyload, {
 });
 
 let router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes: [{
+    path: '/',
+    redirect: '/goods'
+  }, {
     path: '/goods',
     component: goods
   }, {
@@ -35,9 +38,6 @@ let router = new VueRouter({
   }, {
     path: '/ratings',
     component: ratings
-  }, {
-    path: '*',
-    component: goods
   }],
   linkActiveClass: 'active'
 });
@@ -47,5 +47,3 @@ new Vue({
   router,
   components: { App }
 }).$mount('#app');
-
-router.replace('/goods');
