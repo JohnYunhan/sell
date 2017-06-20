@@ -26,7 +26,7 @@
       <span class="bulletin-title"></span><span class="bulletin-text">{{seller.bulletin}}</span><i class="fa fa-angle-right"></i>
     </div>
     <div class="background">
-      <img :src="seller.avatars" width="100%" height="100%">
+      <img :src="seller.avatar" width="100%" height="100%">
     </div>
     <transition name="fade">
       <div v-show="detailShow" class="detail">

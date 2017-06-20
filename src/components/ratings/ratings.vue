@@ -3,7 +3,7 @@
     <div class="ratings-content">
       <div class="overview">
         <div class="overview-left">
-          <h1 class="score">{{seller.score}}.0</h1>
+          <h1 class="score">{{seller.score}}</h1>
           <div class="title">综合评分</div>
           <div class="rank">高于周边商家{{seller.rankRate}}%</div>
         </div>
@@ -11,12 +11,12 @@
           <div class="service-score">
             <span class="service">服务态度</span>
             <star :size="36" :score="seller.serviceScore"></star>
-            <span class="score">{{seller.serviceScore}}.0</span>
+            <span class="score">{{seller.serviceScore}}</span>
           </div>
           <div class="food-score">
             <span class="foods">商品质量</span>
             <star :size="36" :score="seller.foodScore"></star>
-            <span class="score">{{seller.foodScore}}.0</span>
+            <span class="score">{{seller.foodScore}}</span>
           </div>
           <div class="delivery-time">
             <span class="delivery">送达时间</span>
